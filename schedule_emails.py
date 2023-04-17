@@ -14,7 +14,7 @@ EMAIL_PASSWORD = os.getenv('PASSWORD')
 
 # email content
 email_content = """\
-Subject: Your WiCS Buddy 🤖
+Subject: Your WiCS Buddy
 
 Hi {name1} and {name2},
 
@@ -23,11 +23,11 @@ This is just a friendly reminder that you are each other's WiCS buddy for this w
 Have a great week!
 
 Best regards,
-WiCS Buddy Bot 🤖
+WiCS Buddy Bot
 """
 
 # sender email account details
-sender_email = ""
+sender_email = "kuhuhalder2701@gmail.com"
 sender_password = "sjxintblbqayhwgk"
 
 def send_email(to_email, to_name):
