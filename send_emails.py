@@ -1,10 +1,10 @@
-
 import smtplib
 from email.message import EmailMessage
 import os
+from dotenv import load_dotenv 
 #email configuration
-EMAIL_ADDRESS = os.environ.get('EMAIL_ADDRESS')
-EMAIL_PASSWORD = os.environ.get('PASSWORD')
+EMAIL_ADDRESS = os.getenv('EMAIL_ADDRESS')
+EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
 
 def no_buddy(buddy, msg):
     #content of email  
@@ -41,7 +41,8 @@ def main(pairs):
             no_buddy(pair[1], msg)            
         else:
             #content of email  
-            msg['To'] = [pair[0][0], pair[1][0]]  #access email
+            # msg['To'] = [pair[0][0], pair[1][0]]  #access email
+            msg['To'] = 'achuth810@gmail.com'
             html="""<div style="text-align:center; font-family: 'Courier'; font-size: 15px;">
                     <h2>Hi 👋  I'm the WiCS Buddy Bot 🤖 ! You've got mail 💌</h2>
                     <p>If you're receiving this message, this means you've signed up to meet other members of WiCS ☺️ </p> 
@@ -57,10 +58,11 @@ def main(pairs):
             html = html.replace("$(partner2)", pair[1][1])
 
             msg.set_content(html, subtype='html')
-
-
             with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
                 smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD) 
                 smtp.send_message(msg)
 
     return
+
+pairs = [[('achuth810@gmail.com', 'Jane'), ('achuth.nair@rutgers.edu', 'John')]]
+main(pairs)
