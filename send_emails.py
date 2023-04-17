@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv 
 #email configuration
 EMAIL_ADDRESS = os.getenv('EMAIL_ADDRESS')
-EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
+EMAIL_PASSWORD = os.getenv('PASSWORD')
 
 def no_buddy(buddy, msg):
     #content of email  

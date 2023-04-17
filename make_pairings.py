@@ -9,7 +9,6 @@ firebase_admin.initialize_app(cred)
 # create Firestore client
 db = firestore.client()
 
-
 def get_emails():
     # retrieve all documents from the collection
     docs = db.collection("users").get()
@@ -57,6 +56,11 @@ def make_pairings(emails_and_names):
     
     return paired_people
 
+
+if __name__ == "__main__":
+    emails_and_names = get_emails()
+    pairings = make_pairings(emails_and_names)
+    print(pairings)
 
 
 
