@@ -2,10 +2,18 @@ import smtplib
 from email.message import EmailMessage
 import os
 from dotenv import load_dotenv 
+dotenv_path = './env/email.env'
+load_dotenv(dotenv_path=dotenv_path)
 #email configuration
 EMAIL_ADDRESS = os.getenv('EMAIL_ADDRESS')
+<<<<<<< HEAD
 EMAIL_PASSWORD = os.getenv('PASSWORD')
 
+=======
+EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
+print(os.getenv('EMAIL_ADDRESS'))
+print(os.getenv('EMAIL_PASSWORD'))
+>>>>>>> 18a7aacf34df18b3f508c85c34517ac156bec8a2
 def no_buddy(buddy, msg):
     #content of email  
     msg['To'] = buddy[0]  #access email
